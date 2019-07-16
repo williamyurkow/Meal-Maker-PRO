@@ -1,0 +1,44 @@
+body {
+    background-image: url("../images/food2.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: White;
+    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+.btn {
+    background: rgb(153, 14, 14);
+    
+}
+
+.card {
+    padding: 20px;
+    opacity: 0.8;
+    margin-left: 40px;
+    text-align: center;
+    background-color:black;
+    color: white;
+}
+
+#card2 {
+   margin-top: 20px;
+}
+
+.footer {
+    color: white;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: rgb(153, 14, 14);
+}
+
+
