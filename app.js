@@ -3,7 +3,8 @@ console.log("connected!!");
 //var queryURL =  "https://api.edamam.com/search?q=chicken&app_id=$8c2351e7&app_key=$087d2a17e75845fff9e46f193204a611";
 
 
-var queryUrl = "https://www.food2fork.com/api/search?key=d147266311e0da945fc52fdec229ef68&q=chicken%20breast&limit=10"
+var queryUrl = "https://www.food2fork.com/api/search?key=d147266311e0da945fc52fdec229ef68&q=chicken%20breast";
+
 $.ajax({
   url: "http://104.200.17.235:8081/cors/",
   method: "POST",
@@ -14,26 +15,63 @@ $.ajax({
   })
 })
 
-  .done(function(response) {
+  .done(function (response) {
 
-    console.log(response); 
-    
-    var results = response.data; 
-    var recipes = $("<img>");
-    recipes.attr("src", results);
-    recipes.attr("alt", "recipes");
+    console.log(response);
+
+    var results = JSON.parse(response);
+
+    console.log(results);
+    //console.log(count.recipes.publisher);
+    console.log(results);
+
+    var x = results.recipes;
+   
  
+   // var x = $("<h1>").text(response.publisher);
+    console.log(x);
 
-    $("#displayArea").append(recipes);
+x.forEach(function(entry){
+
+  $("#displayArea").html(entry.title);
+  console.log(entry.title);
+});
 
   });
 
-  //recipe: List of Recipe Parameters ->
-	// image_url: URL of the image
-	// source_url: Original Url of the recipe on the publisher's site
-	// f2f_url: Url of the recipe on Food2Fork.com
-	// title: Title of the recipe
-	// publisher: Name of the Publisher
-	// publisher_url: Base url of the publisher
-	// social_rank: The Social Ranking of the Recipe (As determined by our Ranking Algorithm)
-	// ingredients: The ingredients of this recipe
+
+
+
+
+
+
+
+
+
+
+
+    //document.getElementById("demo").innerHTML = obj.name + ", " + obj.age; 
+    //$("#displayArea").html(count.recipes.publisher);
+    
+    //console.log(results[0]);
+    
+  //   for (var i = 0; i < x.length; i++) {
+    
+
+  //     console.log(x.);
+    
+  //    }
+  // });
+
+//   var reciPe = $("<img>");
+      
+      
+
+    //   reciPe.attr("src", results);
+    //   reciPe.attr("alt", "recipes");
+
+
+    //   $("#displayArea").append(reciPe)
+
+
+    https://food-calorie-data-search.p.rapidapi.com/api/search?keyword=apple&api_key=d8aa2d87b4msh4ca44392d137fb0p1cdc1ejsnb193ac8316df;
