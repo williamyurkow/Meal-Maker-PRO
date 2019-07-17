@@ -5,6 +5,11 @@ body {
     background-size: cover;
 }
 
+nav {
+    background: rgb(153, 14, 14);
+    margin-bottom: 20px;
+}
+
 h1 {
     text-align: center;
     color: White;
