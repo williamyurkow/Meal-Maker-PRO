@@ -4,10 +4,8 @@ console.log("Working...");
 //     console.log("Checking jQuery is loading currently" + $.ajax);
 //   });
 
-let userVideos = [];
-
 function displayVideoSearch(video) {
-    
+
     let queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + video + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBipW9YvsKlnNv2sz0P6Mhe8HOS_p7o4RA";
     console.log("This is our query link" + queryURL);
 
@@ -17,9 +15,6 @@ function displayVideoSearch(video) {
     }).then(function (response) {
 
         // console.log(response);
-
-        //Prob save the youtube link for a separate function I think.
-        // videoLink = "https://www.youtube.com/watch?v=" + videoIds;
 
         //Get further into object so we see our responses object
         let videoObject = response.items;
@@ -47,13 +42,16 @@ function displayVideoSearch(video) {
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
             videoImage.attr("src", imageURL);
-            
+
             //Check this
             console.log(videoImage);
 
             let newDiv = $("<div>");
 
-            newDiv.append(videoImage, videoTitle, videoDescription);
+            newDiv.append(videoImage, "<h3>" + videoTitle + "</h3>",
+                "<h5>" + videoPublished + "</h5>",
+                "<p>" + videoDescription + "</p>"
+                + "<br>");
 
             $("#video-choose").prepend(newDiv);
 
@@ -64,7 +62,7 @@ function displayVideoSearch(video) {
 
 };
 
-// displayVideoSearch("utah");
+
 
 $("#video-button").on("click", function () {
     let searchTerm = $("#video-input").val();
@@ -74,22 +72,3 @@ $("#video-button").on("click", function () {
 
 
 });
-
-
-
-// console.log(videoIds);
-// console.log (videoLink);
-
-// $("#youtube-link").click(function () {
-//     document.location.href = (videoLink.replace(/['"]+/g, ''))
-// });
-
-// console.log(videoLink.replace(/['"]+/g, ''));
-// // console.log(videoIds);
-// console.log(response.items[0].snippet.title);
-// console.log(videoIds.replace(/['"]+/g, ''));
-
-
-
-
-
