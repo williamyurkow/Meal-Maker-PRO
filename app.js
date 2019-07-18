@@ -23,64 +23,51 @@ $.ajax({
     var x = results.recipes;
     // var x = $("<h1>").text(response.publisher);
     console.log(x);
+    var table = $("<table>");
 
+    $.each(x, function(i, entry){
+     
+      console.log(entry);
 
-    var table = $("<table/>").addClass('tableGenerator');
-    $.each(x, function (rowIndex, r) {
-      var row = $("<tr/>");
-      $.each(r, function (colIndex, c) {
-        row.append($("<t" + (rowIndex == 0 ? "h" : "d") + "/>").text(c));
-      });
-      table.append(row);
-      $("#displayArea").append(table);
-    });
+      console.log(entry.title);
+
+  
+    
+      $(table).append(
+          "<tr>" +
+            "<td>" + entry.title + "</td>" +
+            "<td>" + entry.source_url + "</td>" +
+            //"<td>"+  +"</td>" +
+          "</tr>"
+      );
+   
+    // if ($("#displayArea tbody").length == 0) {
+    //   $("#displayArea").append("<tbody></tbody>");
+    // }
+  
   });
+  $("#displayArea").append(table)
+  });
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
+  //   var header = $("<th>");
+  //   var table = $("<table/>").addClass('tableGenerator');
+  
+  //   $.each(x, function (rowIndex, r) {
+    
+  //     var row = $("<tr/>");
 
+  //     $.each(r, function (colIndex, c) {
+  //       row.append($("<t" + (rowIndex == 0 ? "h" : "d") + "/>").text(c));
+  //     });
 
-
-
-      // $.getJSON(url , function(data) {
-      //   var tbl_body = "";
-      //   var odd_even = false;
-      //   $.each(data, function() {
-      //       var tbl_row = "";
-      //       $.each(this, function(k , v) {
-      //           tbl_row += "<td>"+v+"</td>";
-      //       })
-      //       tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
-      //       odd_even = !odd_even;               
-      //   })
-      //   $("#target_table_id tbody").html(tbl_body);
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// x = { table: "recipes", limit: 20 };
-// dbParam = JSON.stringify(x);
-// xmlhttp = new XMLHttpRequest();
-// xmlhttp.onreadystatechange = function () {
-//   if (this.readyState == 4 && this.status == 200) {
-//     myObj = JSON.parse(this.responseText);
-//     txt += "<table border='1'>"
-//     for (x in myObj) {
-//       txt += "<tr><td>" + myObj[x].name + "</td></tr>";
-//     }
-//     txt += "</table>"
-//     $("#displayArea").innerHTML = txt;
-//   }
-// }
-// xmlhttp.open("POST", "json_demo_db_post.php", true);
-// xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-// xmlhttp.send("x=" + dbParam);
-
-
-
-
+  //     table.append(row);
+  //     $("#displayArea").append(header);
+  //     $("#displayArea").append(table);
+  //   });
+  // });
+/////////////////////////////////////////////////////////////////////
+  
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 //document.getElementById("demo").innerHTML = obj.name + ", " + obj.age; 
