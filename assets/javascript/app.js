@@ -4,6 +4,8 @@ console.log("Working...");
 //     console.log("Checking jQuery is loading currently" + $.ajax);
 //   });
 
+AOS.init();
+
 function displayVideoSearch(video) {
 
     let queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + video + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBipW9YvsKlnNv2sz0P6Mhe8HOS_p7o4RA";
@@ -48,6 +50,8 @@ function displayVideoSearch(video) {
 
             let newDiv = $("<div>");
 
+            newDiv.attr("data-aos", "fade-left");
+
             newDiv.append(videoImage, "<h3>" + videoTitle + "</h3>",
                 "<h5>" + videoPublished + "</h5>",
                 "<p>" + videoDescription + "</p>"
@@ -66,6 +70,7 @@ function displayVideoSearch(video) {
 
 $("#video-button").on("click", function () {
     let searchTerm = $("#video-input").val();
+    
 
     console.log(searchTerm);
     displayVideoSearch(searchTerm);
