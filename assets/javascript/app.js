@@ -32,7 +32,7 @@ function displayVideoSearch(video) {
 
             let videoDescription = entry.snippet.description;
             let videoPublished = entry.snippet.publishedAt;
-            let imageURL = entry.snippet.thumbnails.high.url;
+            let imageURL = entry.snippet.thumbnails.medium.url;
 
             //Let's check all these 
             console.log("video title is " + videoTitle);
@@ -44,13 +44,15 @@ function displayVideoSearch(video) {
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
             videoImage.attr("src", imageURL);
+            videoImage.attr("height", "180");
+            videoImage.attr("width", "320");
 
             //Check this
             console.log(videoImage);
 
             let newDiv = $("<div>");
 
-            newDiv.attr("data-aos", "fade-left");
+            newDiv.attr("data-aos", "flip-left");
 
             newDiv.append(videoImage, "<h3>" + videoTitle + "</h3>",
                 "<h5>" + videoPublished + "</h5>",
