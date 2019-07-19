@@ -1,5 +1,7 @@
 console.log("connected!!");
-
+$("#submitBtn").on("click", function () {
+  console.log("working!!!!!");
+});
 var queryUrl = "https://www.food2fork.com/api/search?key=d147266311e0da945fc52fdec229ef68&q=chicken%20breast";
 
 $.ajax({
@@ -24,6 +26,7 @@ $.ajax({
     // var x = $("<h1>").text(response.publisher);
     console.log(x);
     var table = $("<table>");
+    
 
     $.each(x, function (i, entry) {
 
@@ -43,8 +46,8 @@ $.ajax({
 
     });
     $("#displayArea").append(table)
+    
+   
   });
 
-  // $("#submitBtn").on("click", function(){
 
-  // }
