@@ -1,3 +1,4 @@
+AOS.init();
 console.log("Working...");
 
 // $(document).ready(function() {
