@@ -52,4 +52,11 @@ h1 {
     background: rgb(153, 14, 14);
 }
 
+table {
+    color: white;
+}
 
+.tableImage {
+    height: 40px;
+    width: 80px;
+}
