@@ -15,6 +15,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+
+
 
     <title>Video Recipes</title>
 </head>
@@ -62,14 +66,11 @@
 
                             <div class="bg-faded rounded p-5">
                                 <h2 class="section-heading mb-4">
-                                    <span class="section-heading-upper">Fast. Fun. Recipes.</span>
+                                    <span class="section-heading-upper">Recipe how-to videos.</span>
                                     <span class="section-heading-lower"></span>
                                 </h2>
-                                <p><strong>Founded in 2019, our recipes are widly known for being convenient and
-                                        delicious!</strong></p>
-                                <p class="mb-0"><strong>We guarantee that you will fall in <em>lust</em> with our
-                                        awesome
-                                        recipes.</strong>
+                                <p><strong>Don't just read how to make something!</strong></p>
+                                <p class="mb-0">Use our search feature to find the very best how-to videos on that recipe you've been wanting to make.
                                 </p>
                                 <br>
                                 <form>
@@ -79,18 +80,20 @@
                                             placeholder="Search Here">
                                     </div>
                                     <div class="intro-button mx-auto">
-                                        <a class="btn btn-primary btn-xl" id="video-button">Meal Time!</a>
+                                        <a class="btn btn-primary btn-xl" id="video-button">Meal Time!</a> 
+                                        <a class="btn btn-primary btn-xl" id="clear-button">Clear Results</a>
                                     </div>
+                                                                          
+                                    
                                 </form>
                             </div>
 
                             <div class="bg-faded rounded p-5">
                                 <div class="col-xl-5 mx-auto">
                                     <div id="video-choose"></div>
+                                   
                                 </div>
-                                <div class="col-xl-5 mx-auto">
-                                    <div id="video-results"></div>
-                                </div>
+                                
 
 
                             </div>

@@ -4,7 +4,21 @@ console.log("Working...");
 //     console.log("Checking jQuery is loading currently" + $.ajax);
 //   });
 
+//Start up our AOS library
 AOS.init();
+
+let firebaseConfig = {
+    apiKey: "AIzaSyDpd7FElDFfaFFEoOnS4lI3TYCiFyJYnU8",
+    authDomain: "mealmaker-247017.firebaseapp.com",
+    databaseURL: "https://mealmaker-247017.firebaseio.com",
+    projectId: "mealmaker-247017",
+    storageBucket: "",
+    messagingSenderId: "432422444738",
+    appId: "1:432422444738:web:f51b85e4c599cec0"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 
 function displayVideoSearch(video) {
 
@@ -40,42 +54,67 @@ function displayVideoSearch(video) {
             console.log("Video published date is " + videoPublished);
             console.log("Video ID is " + videoLink);
 
-
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
             videoImage.attr("src", imageURL);
             videoImage.attr("height", "180");
             videoImage.attr("width", "320");
 
+            // <input id="check1" type="checkbox" checked="checked">
+            //     <label for="check1">Check me</label>
+
+            let checkBox = $('<input id="check" type="checkbox" checked="checked">' + '<label for="check1">Add to Favorites</label>');
+
+            console.log(checkBox);
+
             //Check this
             console.log(videoImage);
 
-            let newDiv = $("<div>");
+            //Let's create a list element instead
+            let newBullet = $("<li>");
+            let span = $("<span>");
 
-            newDiv.attr("data-aos", "flip-left");
+            newBullet.append(span);
 
-            newDiv.append(videoImage, "<h3>" + videoTitle + "</h3>",
+            // //make a div to add all this data to the page
+            // let newDiv = $("<div>");
+
+            //Use a new technology, animation on scroll for some cool affects
+            newBullet.attr("data-aos", "flip-left");
+
+            newBullet.append(videoImage, "<h3>" + videoTitle + "</h3>",
                 "<h5>" + videoPublished + "</h5>",
                 "<p>" + videoDescription + "</p>"
                 + "<br>");
 
-            $("#video-choose").prepend(newDiv);
-
+            $("#video-choose").prepend(newBullet);
 
         });
-
     });
-
 };
 
 
-
+//On click for submitting a search query
 $("#video-button").on("click", function () {
     let searchTerm = $("#video-input").val();
-    
 
+    //make sure we're seeing event
     console.log(searchTerm);
-    displayVideoSearch(searchTerm);
 
+    //send to our API call function
+    displayVideoSearch(searchTerm);
+});
+
+
+//On click to clear page of all results
+$("#clear-button").on("click", function () {
+
+    //make sure it's seeing event
+    console.log("Button working!");
+
+    //empty div of all search results!
+    $("#video-choose").empty();
 
 });
+
+

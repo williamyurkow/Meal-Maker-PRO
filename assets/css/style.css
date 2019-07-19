@@ -18,6 +18,19 @@ h1 {
     margin-top: 10px;
 }
 
+h2, h3, h4 {
+    text-align: left;
+    color: White;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+p {
+    text-align: left;
+    color: white;
+    font-size: 15px;
+}
+
 .btn {
     background: rgb(153, 14, 14);
     
