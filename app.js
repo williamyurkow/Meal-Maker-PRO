@@ -25,70 +25,26 @@ $.ajax({
     console.log(x);
     var table = $("<table>");
 
-    $.each(x, function(i, entry){
-     
+    $.each(x, function (i, entry) {
+
       console.log(entry);
 
       console.log(entry.title);
 
-  
-    
+
+
       $(table).append(
-          "<tr>" +
-            "<td>" + entry.title + "</td>" +
-            "<td>" + entry.source_url + "</td>" +
-            //"<td>"+  +"</td>" +
-          "</tr>"
+        "<tr>" +
+        `<td><img class="tableImage" src="${entry.image_url}"><img></td>` +
+        "<td>" + entry.title + "</td>" +
+        "<td>" + entry.source_url + "</td>" +
+        "</tr>"
       );
-   
-    // if ($("#displayArea tbody").length == 0) {
-    //   $("#displayArea").append("<tbody></tbody>");
-    // }
-  
+
+    });
+    $("#displayArea").append(table)
   });
-  $("#displayArea").append(table)
-  });
-/////////////////////////////////////////////////////////////////////////////////////////////////
 
-  //   var header = $("<th>");
-  //   var table = $("<table/>").addClass('tableGenerator');
-  
-  //   $.each(x, function (rowIndex, r) {
-    
-  //     var row = $("<tr/>");
+  // $("#submitBtn").on("click", function(){
 
-  //     $.each(r, function (colIndex, c) {
-  //       row.append($("<t" + (rowIndex == 0 ? "h" : "d") + "/>").text(c));
-  //     });
-
-  //     table.append(row);
-  //     $("#displayArea").append(header);
-  //     $("#displayArea").append(table);
-  //   });
-  // });
-/////////////////////////////////////////////////////////////////////
-  
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//document.getElementById("demo").innerHTML = obj.name + ", " + obj.age; 
-//$("#displayArea").html(count.recipes.publisher);
-
-//console.log(results[0]);
-
-//   for (var i = 0; i < x.length; i++) {
-
-
-//     console.log(x.);
-
-//    }
-// });
-
-//   var reciPe = $("<img>");
-
-
-
-//   reciPe.attr("src", results);
-//   reciPe.attr("alt", "recipes");
-
-
-//   $("#displayArea").append(reciPe)
+  // }
