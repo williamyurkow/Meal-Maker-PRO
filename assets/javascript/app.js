@@ -21,9 +21,12 @@ let firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+
+
 function displayVideoSearch(video) {
 
-    let queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + video + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBipW9YvsKlnNv2sz0P6Mhe8HOS_p7o4RA";
+    let queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=" + video
+        + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBipW9YvsKlnNv2sz0P6Mhe8HOS_p7o4RA";
     console.log("This is our query link" + queryURL);
 
     $.ajax({
@@ -38,22 +41,24 @@ function displayVideoSearch(video) {
 
         console.log(videoObject);
 
-        //Ok, now we need to grab what we want from each item :)
-        videoObject.forEach(function (entry) {
-            console.log(entry);
 
-            let videoTitle = entry.snippet.title;
-            let videoLink = "https://www.youtube.com/watch?v=" + entry.id.videoId;
+        // Ok, now we need to grab what we want from each item:)
+        videoObject.forEach(function (entry) {
+            // console.log(entry);
+
+            // let videoTitle = entry.snippet.title;
+            let videoLink = "<a href=https://www.youtube.com/watch?v="
+                + entry.id.videoId + '" ' + 'target="_blank">' + entry.snippet.title + "</a>";
 
             let videoDescription = entry.snippet.description;
             let videoPublished = entry.snippet.publishedAt;
             let imageURL = entry.snippet.thumbnails.medium.url;
 
-            //Let's check all these 
-            console.log("video title is " + videoTitle);
-            console.log("Video description is " + videoDescription);
-            console.log("Video published date is " + videoPublished);
-            console.log("Video ID is " + videoLink);
+            // //Let's check all these 
+            // console.log("video title is " + videoTitle);
+            // console.log("Video description is " + videoDescription);
+            // console.log("Video published date is " + videoPublished);
+            // console.log("Video ID is " + videoLink);
 
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
@@ -61,34 +66,27 @@ function displayVideoSearch(video) {
             videoImage.attr("height", "180");
             videoImage.attr("width", "320");
 
-            // <input id="check1" type="checkbox" checked="checked">
-            //     <label for="check1">Check me</label>
+            //make a div to add all this data to the page
+            let newDiv = $('<div id="video-results">');
 
-            let checkBox = $('<input id="check" type="checkbox" checked="checked">' + '<label for="check1">Add to Favorites</label>');
-
-            console.log(checkBox);
-
-            //Check this
-            console.log(videoImage);
-
-            //Let's create a list element instead
-            let newBullet = $("<li>");
-            let span = $("<span>");
-
-            newBullet.append(span);
-
-            // //make a div to add all this data to the page
-            // let newDiv = $("<div>");
 
             //Use a new technology, animation on scroll for some cool affects
-            newBullet.attr("data-aos", "flip-left");
+            newDiv.attr("data-aos", "flip-left");
+            newDiv.attr("class", "video-results");
+           
 
-            newBullet.append(videoImage, "<h3>" + videoTitle + "</h3>",
-                "<h5>" + videoPublished + "</h5>",
+            let newButton = $("<a>Add to Favorites!</a>");
+            newButton.attr("class", "btn btn-primary btn-xl");
+            newButton.attr("class", "btn");
+            newButton.attr("id", entry.id.videoId);
+
+
+            newDiv.append(videoImage,"<br>", "<br>", "<h3>" + videoLink + "</h3>",
+                "<br>","<h5>" + videoPublished + "</h5>",
                 "<p>" + videoDescription + "</p>"
-                + "<br>");
+                + "<br>", newButton, "<br>", "<br>");
 
-            $("#video-choose").prepend(newBullet);
+            $("#video-choose").prepend(newDiv);
 
         });
     });
@@ -115,6 +113,28 @@ $("#clear-button").on("click", function () {
 
     //empty div of all search results!
     $("#video-choose").empty();
+
+});
+
+
+//On click, send data to Firebase
+
+//Image
+//Title
+//Description
+//Publish Date
+
+
+$(document).on("click", ".btn", function () {
+
+    //check to see event is working
+    console.log("Favorites button working!");
+
+    favoriteVideo = $(this).attr('id');
+
+    console.log("This is the video " + favoriteVideo);
+
+
 
 });
 

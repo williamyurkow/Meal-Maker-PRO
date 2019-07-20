@@ -5,6 +5,13 @@ body {
     background-size: cover;
 }
 
+a:link {
+    color: rgb(153, 14, 14);
+    font-weight: bolder;
+
+}
+
+
 nav {
     background: rgb(153, 14, 14);
     margin-bottom: 20px;
