@@ -127,7 +127,7 @@ $("#clear-button").on("click", function () {
 
 $(document).on("click", ".btn", function () {
 
-    //check to see event is working
+    //check to see event is working and links blah just trying to make changes
     console.log("Favorites button working!");
 
     favoriteVideo = $(this).attr('id');
