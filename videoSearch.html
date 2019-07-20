@@ -15,6 +15,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+
+
 
     <title>Video Recipes</title>
 </head>
@@ -62,14 +66,22 @@
 
                             <div class="bg-faded rounded p-5">
                                 <h2 class="section-heading mb-4">
-                                    <span class="section-heading-upper">Fast. Fun. Recipes.</span>
+                                    <span class="section-heading-upper">Recipe how-to videos.</span>
                                     <span class="section-heading-lower"></span>
                                 </h2>
-                                <p><strong>Founded in 2019, our recipes are widly known for being convenient and
-                                        delicious!</strong></p>
-                                <p class="mb-0"><strong>We guarantee that you will fall in <em>lust</em> with our
-                                        awesome
-                                        recipes.</strong>
+                                <p class="mb-0">
+                                    <strong>
+                                        MealMaker Pro's video recipe search let's you find healthy, quick, or
+                                        extravagant meals to create, whether that's your dinner tonight or your next
+                                        dinner party. Just enter in what you're looking for and we'll give you a list of
+                                        top video
+                                        results.
+                                </p>
+                                <br><br>
+                                <p>
+                                    You can even save your favorite videos to your Favorite Recipes page. Just click
+                                    on the "Favorite Recipe" button near the video you want to save!
+                                    </strong>
                                 </p>
                                 <br>
                                 <form>
@@ -80,35 +92,39 @@
                                     </div>
                                     <div class="intro-button mx-auto">
                                         <a class="btn btn-primary btn-xl" id="video-button">Meal Time!</a>
+                                        <a class="btn btn-primary btn-xl" id="clear-button">Clear Results</a>
                                     </div>
+
+
                                 </form>
                             </div>
 
-                            <div class="bg-faded rounded p-5">
-                                <div class="col-xl-5 mx-auto">
-                                    <div id="video-choose"></div>
-                                </div>
-                                <div class="col-xl-5 mx-auto">
-                                    <div id="video-results"></div>
-                                </div>
 
+
+                            <div id="video-choose">
 
                             </div>
+
+
+
 
 
                         </div>
 
 
                     </div>
+
+
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
 
-        <footer class="footer text-faded fixed-bottom text-center py-5">
-            <div class="container">
-                <p class="m-0 small">Copyright &copy; Meal Maker PRO 2019</p>
-            </div>
-        </footer>
+    <footer class="footer text-faded fixed-bottom text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; Meal Maker PRO 2019</p>
+        </div>
+    </footer>
     </div>
 
 
