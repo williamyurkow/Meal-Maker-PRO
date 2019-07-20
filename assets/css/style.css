@@ -5,6 +5,13 @@ body {
     background-size: cover;
 }
 
+a:link {
+    color: rgb(153, 14, 14);
+    font-weight: bolder;
+
+}
+
+
 nav {
     background: rgb(153, 14, 14);
     margin-bottom: 20px;
@@ -16,6 +23,19 @@ h1 {
     font-family: 'Raleway', sans-serif;
     font-size: 60px;
     margin-top: 10px;
+}
+
+h2, h3, h4 {
+    text-align: left;
+    color: White;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+p {
+    text-align: left;
+    color: white;
+    font-size: 15px;
 }
 
 .btn {
