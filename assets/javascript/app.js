@@ -20,7 +20,7 @@ let firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
+let favoriteVideos = [];
 
 
 function displayVideoSearch(video) {
@@ -135,12 +135,10 @@ $(document).on("click", ".btn", function () {
     console.log("Favorites button working!");
 
     favoriteVideo = $(this).attr('id');
-
     console.log("This is the video " + favoriteVideo);
 
-    
-
-
+    favoriteVideos.push(favoriteVideo);
+    console.log(favoriteVideos);
 
 });
 
