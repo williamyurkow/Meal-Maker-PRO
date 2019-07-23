@@ -49,16 +49,27 @@ function displayVideoSearch(video) {
             // let videoTitle = entry.snippet.title;
             let videoLink = "<a href=https://www.youtube.com/watch?v="
                 + entry.id.videoId + '" ' + 'target="_blank">' + entry.snippet.title + "</a>";
-
+            let videoTitle = entry.snippet.title;
             let videoDescription = entry.snippet.description;
             let videoPublished = entry.snippet.publishedAt;
             let imageURL = entry.snippet.thumbnails.medium.url;
+            let videoId = entry.id.videoId;
 
             // //Let's check all these 
             // console.log("video title is " + videoTitle);
             // console.log("Video description is " + videoDescription);
             // console.log("Video published date is " + videoPublished);
             // console.log("Video ID is " + videoLink);
+
+            //Let's store this into our Firebase! 
+            firebase.database().ref().push({
+             id: videoId,
+             title: videoTitle,
+             description: videoDescription,
+             published: videoPublished,
+             imageURL: imageURL,
+             link: videoLink,
+             });
 
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
