@@ -128,13 +128,6 @@ $("#clear-button").on("click", function () {
 });
 
 
-//On click, send data to Firebase
-
-//Image
-//Title
-//Description
-//Publish Date
-
 
 $(document).on("click", ".btn", function () {
 
@@ -144,6 +137,8 @@ $(document).on("click", ".btn", function () {
     favoriteVideo = $(this).attr('id');
 
     console.log("This is the video " + favoriteVideo);
+
+    
 
 
 
