@@ -1,4 +1,3 @@
-AOS.init();
 console.log("Working...");
 
 // $(document).ready(function() {
@@ -63,13 +62,13 @@ function displayVideoSearch(video) {
 
             //Let's store this into our Firebase! 
             firebase.database().ref().push({
-             id: videoId,
-             title: videoTitle,
-             description: videoDescription,
-             published: videoPublished,
-             imageURL: imageURL,
-             link: videoLink,
-             });
+                id: videoId,
+                title: videoTitle,
+                description: videoDescription,
+                published: videoPublished,
+                imageURL: imageURL,
+                link: videoLink,
+            });
 
             //Ok, now let's make an image element and use one of the urls
             let videoImage = $("<img>");
@@ -84,7 +83,7 @@ function displayVideoSearch(video) {
             //Use a new technology, animation on scroll for some cool affects
             newDiv.attr("data-aos", "flip-left");
             newDiv.attr("class", "video-results");
-           
+
 
             let newButton = $("<a>Add to Favorites!</a>");
             newButton.attr("class", "btn btn-primary btn-xl");
@@ -92,8 +91,8 @@ function displayVideoSearch(video) {
             newButton.attr("id", entry.id.videoId);
 
 
-            newDiv.append(videoImage,"<br>", "<br>", "<h3>" + videoLink + "</h3>",
-                "<br>","<h5>" + videoPublished + "</h5>",
+            newDiv.append(videoImage, "<br>", "<br>", "<h3>" + videoLink + "</h3>",
+                "<br>", "<h5>" + videoPublished + "</h5>",
                 "<p>" + videoDescription + "</p>"
                 + "<br>", newButton, "<br>", "<br>");
 
@@ -134,12 +133,14 @@ $(document).on("click", ".btn", function () {
     //check to see event is working and links blah just trying to make changes
     console.log("Favorites button working!");
 
+    //grab the id value of the button being clicked
     favoriteVideo = $(this).attr('id');
     console.log("This is the video " + favoriteVideo);
-
+    //pushed this id to an array of all user favorites
     favoriteVideos.push(favoriteVideo);
     console.log(favoriteVideos);
 
 });
 
+sessionStorage.setItem('favs', favoriteVideos);
 
