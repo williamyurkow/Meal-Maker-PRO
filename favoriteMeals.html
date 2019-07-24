@@ -10,7 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>Meals</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+
+    <title>Favorites Meals</title>
 </head>
 
 <body>
@@ -44,6 +50,20 @@
                 </div>
         </nav>
 
+        <section class="page-section about-heading">
+            <div class="container">
+                <div class="about-heading-content">
+                    <div class="row">
+
+
+                        <div class="col-xl-9 col-lg-10 mx-auto" id="favorites">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
     <footer class="footer text-faded fixed-bottom text-center py-5">
         <div class="container">
@@ -54,7 +74,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/favorites.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
