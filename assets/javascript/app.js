@@ -140,7 +140,14 @@ $(document).on("click", ".btn", function () {
     favoriteVideos.push(favoriteVideo);
     console.log(favoriteVideos);
 
+    sessionStorage.setItem("favs", JSON.stringify(favoriteVideos));
+    
+    console.log(sessionStorage);
+
+
+    
+
 });
 
-sessionStorage.setItem('favs', favoriteVideos);
+
 
